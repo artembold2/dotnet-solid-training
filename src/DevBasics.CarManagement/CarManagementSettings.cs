@@ -11,41 +11,16 @@ public class CarManagementSettings
 
     public CarManagementSettings()
     {
-        // Define all Leasing API Endpoints.
-        ApiEndpoints.Add(1, "/bulk-registration-devices");
-        ApiEndpoints.Add(2, "/check-transaction-status");
-        ApiEndpoints.Add(3, "/show-registration-details");
+        InitializeEndPoints();
+        InitializeHttpHeaders();
+        InitializeLanguageCodes();
+        InitializeTimeZones();
+    }
 
-        // Define headers for HTTP-Requests.
-        HttpHeaders.Add("Content-Type", "application/json");
+    private void InitializeHttpHeaders() => HttpHeaders.Add("Content-Type", "application/json");
 
-        // Define valid language codes (see Leasing API Spec).
-        LanguageCodes.Add("Dutch", "nl");
-        LanguageCodes.Add("English", "en");
-        LanguageCodes.Add("French", "fr");
-        LanguageCodes.Add("German", "de");
-        LanguageCodes.Add("Spanish", "es");
-        LanguageCodes.Add("Italian", "it");
-        LanguageCodes.Add("Japanese", "jp");
-        LanguageCodes.Add("Traditional Chinese", "zf");
-        LanguageCodes.Add("Simple Chinese", "zh");
-        LanguageCodes.Add("Swedish", "sv");
-        LanguageCodes.Add("Finnish", "fi");
-        LanguageCodes.Add("Danish", "dk");
-        LanguageCodes.Add("Norwegian", "no");
-        LanguageCodes.Add("Thailand", "th");
-        LanguageCodes.Add("Brazilian Portugese", "br");
-        LanguageCodes.Add("Czech", "cs");
-        LanguageCodes.Add("Hungarian", "hu");
-        LanguageCodes.Add("Polish", "pl");
-        LanguageCodes.Add("Portuguese", "pt");
-        LanguageCodes.Add("Korean", "ko");
-        LanguageCodes.Add("Malay", "my");
-        LanguageCodes.Add("Romanian", "ro");
-        LanguageCodes.Add("Slovak", "sk");
-        LanguageCodes.Add("Ukrainian", "uk");
-        LanguageCodes.Add("Hindi", "hi");
-
+    private void InitializeTimeZones()
+    {
         TimeZones.Add("Europe/London", 0);
         TimeZones.Add("Europe/Lisbon", 0);
         TimeZones.Add("America/Noronha", 120);
@@ -92,5 +67,43 @@ public class CarManagementSettings
         TimeZones.Add("Etc/GMT-11", -660);
         TimeZones.Add("Pacific/Auckland", -720);
         TimeZones.Add("Etc/GMT-13", -780);
+    }
+
+    private void InitializeLanguageCodes()
+    {
+        // Define valid language codes (see Leasing API Spec).
+        LanguageCodes.Add("Dutch", "nl");
+        LanguageCodes.Add("English", "en");
+        LanguageCodes.Add("French", "fr");
+        LanguageCodes.Add("German", "de");
+        LanguageCodes.Add("Spanish", "es");
+        LanguageCodes.Add("Italian", "it");
+        LanguageCodes.Add("Japanese", "jp");
+        LanguageCodes.Add("Traditional Chinese", "zf");
+        LanguageCodes.Add("Simple Chinese", "zh");
+        LanguageCodes.Add("Swedish", "sv");
+        LanguageCodes.Add("Finnish", "fi");
+        LanguageCodes.Add("Danish", "dk");
+        LanguageCodes.Add("Norwegian", "no");
+        LanguageCodes.Add("Thailand", "th");
+        LanguageCodes.Add("Brazilian Portugese", "br");
+        LanguageCodes.Add("Czech", "cs");
+        LanguageCodes.Add("Hungarian", "hu");
+        LanguageCodes.Add("Polish", "pl");
+        LanguageCodes.Add("Portuguese", "pt");
+        LanguageCodes.Add("Korean", "ko");
+        LanguageCodes.Add("Malay", "my");
+        LanguageCodes.Add("Romanian", "ro");
+        LanguageCodes.Add("Slovak", "sk");
+        LanguageCodes.Add("Ukrainian", "uk");
+        LanguageCodes.Add("Hindi", "hi");
+    }
+
+    private void InitializeEndPoints()
+    {
+        // Define all Leasing API Endpoints.
+        ApiEndpoints.Add(1, "/bulk-registration-devices");
+        ApiEndpoints.Add(2, "/check-transaction-status");
+        ApiEndpoints.Add(3, "/show-registration-details");
     }
 }

@@ -335,7 +335,7 @@ public class CarManagementService : BaseService
 
         try
         {
-            requestModel.RequestContext = await base.InitializeRequestContextAsync();
+            requestModel.RequestContext = await InitializeRequestContextAsync();
 
             requestModel.TransactionId = transactionId;
             requestModel.CompanyId = cars.CompanyId;

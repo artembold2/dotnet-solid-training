@@ -12,6 +12,7 @@ namespace DevBasics.CarManagement;
 public class CarManagementService : BaseService
 {
     private readonly IMapper _mapper;
+    private readonly IAppSettingsRepository _appSettingsRepository;
 
     public IBulkRegistrationService BulkRegistrationService { get; set; }
 
@@ -32,12 +33,14 @@ public class CarManagementService : BaseService
         IBulkRegistrationService bulkRegisterService,
         IRegistrationDetailService registrationDetailService,
         ILeasingRegistrationRepository registrationRepository,
-        ICarRegistrationRepository carRegistrationRepository)
+        ICarRegistrationRepository carRegistrationRepository,
+        IAppSettingsRepository appSettingsRepository)
         : base(settings, httpHeader, apiClient)
     {
         Console.WriteLine($"Initializing service {nameof(CarManagementService)}");
 
         _mapper = mapper;
+        _appSettingsRepository = appSettingsRepository;
 
         // Optional Services
         BulkRegistrationService = bulkRegisterService;
@@ -55,7 +58,7 @@ public class CarManagementService : BaseService
 
         try
         {
-            AppSettingDto settingResult = await LeasingRegistrationRepository.GetAppSettingAsync(HttpHeader.SalesOrgIdentifier, HttpHeader.WebAppType);
+            AppSettingDto settingResult = await _appSettingsRepository.GetAppSettingAsync(HttpHeader.SalesOrgIdentifier, HttpHeader.WebAppType);
 
             if (settingResult == null)
             {

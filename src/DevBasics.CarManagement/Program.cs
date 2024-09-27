@@ -30,7 +30,8 @@ namespace DevBasics.CarManagement
                 bulkRegistrationServiceMock,
                 new RegistrationDetailServiceMock(),
                 leasingRegistrationRepository,
-                carRegistrationRepositoryMock);
+                carRegistrationRepositoryMock,
+                new AppSettingsRepository());
 
             var result = await service.RegisterCarsAsync(
                 new RegisterCarsModel

@@ -1,6 +1,7 @@
 ﻿using DevBasics.CarManagement.Dependencies;
 using System;
 using System.Collections.Generic;
+using DevBasics.CarManagement.RegistrationNumberGenerators;
 
 namespace DevBasics.CarManagement;
 
